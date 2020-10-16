@@ -1,4 +1,4 @@
-function integrandFunct = getIntegrandWithParameter(iFunct1, iFunct2, iFunct3, jFunct1, jFunct2, jFunct3, basisICoeffs, basisJCoeffs, r, z, k, idNum,p)
+function integrandFunct = getIntegrandWithParameter(iFunct1, iFunct2, iFunct3, jFunct1, jFunct2, jFunct3, basisICoeffs, basisJCoeffs, r, z, k, idNum,parameter)
 
 
     curlRZKforPhiLine1 = @(bCoeff) [ - bCoeff   ];
@@ -20,19 +20,19 @@ function integrandFunct = getIntegrandWithParameter(iFunct1, iFunct2, iFunct3, j
     
     
     if idNum == 1
-        integrandFunct = [ ( -p.*curlsDotProductFor1() + (iFunct1.*jFunct1 + iFunct2.*jFunct2 + iFunct3.*jFunct3) ) .*r];
+        integrandFunct = [ ( -parameter.*curlsDotProductFor1() + (iFunct1.*jFunct1 + iFunct2.*jFunct2 + iFunct3.*jFunct3) ) .*r];
     end
     
     if idNum == 2
-        integrandFunct = [ ( -p.*curlsDotProductFor2() + (iFunct1.*jFunct1 + iFunct2.*jFunct2 + iFunct3.*jFunct3) ) .*r];
+        integrandFunct = [ ( -parameter.*curlsDotProductFor2() + (iFunct1.*jFunct1 + iFunct2.*jFunct2 + iFunct3.*jFunct3) ) .*r];
     end
     
     if idNum == 3
-        integrandFunct = [ ( -p.*curlsDotProductFor3() + (iFunct1.*jFunct1 + iFunct2.*jFunct2 + iFunct3.*jFunct3) ) .*r];
+        integrandFunct = [ ( -parameter.*curlsDotProductFor3() + (iFunct1.*jFunct1 + iFunct2.*jFunct2 + iFunct3.*jFunct3) ) .*r];
     end
     
     if idNum == 4
-        integrandFunct = [ ( -p.*curlsDotProductFor4() + (iFunct1.*jFunct1 + iFunct2.*jFunct2 + iFunct3.*jFunct3) ) .*r];
+        integrandFunct = [ ( -parameter.*curlsDotProductFor4() + (iFunct1.*jFunct1 + iFunct2.*jFunct2 + iFunct3.*jFunct3) ) .*r];
     end
     
 end

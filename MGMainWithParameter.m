@@ -6,7 +6,7 @@ function [solution,MGErrorConvergenceRate,numOfMGIterations] = MGMainWithParamet
     % Test MG
     normS_iVector       = zeros(1,1);
     errors3             = zeros(1,1);
-    normS_0             = getHrCurlNormWithParameter(inputUVector,storingA{meshNum});
+    normS_0             = getHrCurlNormforProblem3(inputUVector,storingA{meshNum});
     checkForToleranceMG = 1;
     numOfMGIterations   = 0;
     
@@ -20,12 +20,12 @@ function [solution,MGErrorConvergenceRate,numOfMGIterations] = MGMainWithParamet
         
         % Test MG
         if(numOfMGIterations == 1)
-           newval1                          = getHrCurlNormWithParameter(solution_i,storingA{meshNum});
+           newval1                          = getHrCurlNormforProblem3(solution_i,storingA{meshNum});
            normS_iVector(numOfMGIterations) = newval1;
            errors3(numOfMGIterations)       = normS_iVector(numOfMGIterations) / normS_0;
         end
         if(numOfMGIterations > 1)
-            newval2       = getHrCurlNormWithParameter(solution_i,storingA{meshNum});
+            newval2       = getHrCurlNormforProblem3(solution_i,storingA{meshNum});
             normS_iVector = [normS_iVector;newval2];
             newval3       = normS_iVector(numOfMGIterations) / normS_iVector(numOfMGIterations-1);
             errors3       = [errors3;newval3];

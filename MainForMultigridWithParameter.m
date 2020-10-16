@@ -10,7 +10,7 @@ errorConvergenceRatesMG = zeros(iterations,1);            %With Multigrid (Test 
 numOfMGIterations       = zeros(iterations,1);            %With Multigrid (Test MG)
 sizeOfDimForMG          = zeros(iterations,1);            %With Multigrid (Test MG)
 k                       = 1; % Pick any non-zero integer, positive or negative. 1, -1, 2, -1; 10-(-10) For now.
-parameter               = .9;
+parameter               = 1;
 
 
 %The new code . . .

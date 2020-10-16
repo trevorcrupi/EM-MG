@@ -147,6 +147,6 @@ function [c,globalA,height,numOfNodes,MGErrorConvergenceRate,numOfMGIterations] 
     testB                                        = zeros(height,1); % Could also use globalB, if we set the function "f" to be 0.
     inputUVector                                 = ones(height,1);
 %     c = MG(inputUVector,testB, meshNum, storingA, storingEdge, storeNodeNums,storeHeights);
-    [c,MGErrorConvergenceRate,numOfMGIterations] = MGMainWithParameter(inputUVector,testB, meshNum, storingA, storingEdge, storeNodeNums,storeHeights);
+    [c,MGErrorConvergenceRate,numOfMGIterations] = MGMainUpdated(inputUVector,testB, meshNum, storingA, storingEdge, storeNodeNums,storeHeights);
 
 end

@@ -1,10 +1,26 @@
 
 
-iterations = 8;
+iterations = 9;
+
+%The new code . . .
+load MyDomain.mat; %Load MyDomain file
+g = decsg(gd, sf, ns);
+model = createpde(1);
+geometryFromEdges(model, g);
+[p, e, t] = initmesh(g, 'hmax', inf);
 
 for n = 1:iterations
-    mystr = ['PETForYoni/PETForYoni' num2str(n) '.mat']; %%%%% NOTE: Didn't update to utilize Matlab's PDE Toolbox -- but it's ok.
-    load(mystr);                                         %%%%% NOTE: Didn't update to utilize Matlab's PDE Toolbox -- but it's ok.
+    
+    %The code that was replaced . . .
+%     mystr = ['PETForYoni/PETForYoni' num2str(n) '.mat']; %%%%% NOTE: Didn't update to utilize Matlab's PDE Toolbox -- but it's ok.
+%     load(mystr);                                         %%%%% NOTE: Didn't update to utilize Matlab's PDE Toolbox -- but it's ok.
+    
+    %The new code . . .
+    if n > 1
+        [p, e, t] = refinemesh(g, p, e, t, 'regular');
+    end
+    
+    
     edge           = getEdgeMatrix(p,t);
     
     numOfNodes = size(p,2);
