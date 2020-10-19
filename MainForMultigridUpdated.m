@@ -9,7 +9,7 @@ storeHeights            = cell(1,8); % Put in height.     %With Multigrid (Test 
 errorConvergenceRatesMG = zeros(iterations,1);            %With Multigrid (Test MG)
 numOfMGIterations       = zeros(iterations,1);            %With Multigrid (Test MG)
 sizeOfDimForMG          = zeros(iterations,1);            %With Multigrid (Test MG)
-k                       = 1; % Pick any non-zero integer, positive or negative. 1, -1, 2, -1; 10-(-10) For now.
+k                       = -100; % Pick any non-zero integer, positive or negative. 1, -1, 2, -1; 10-(-10) For now.
 
 
 %The new code . . .
@@ -20,7 +20,7 @@ geometryFromEdges(model, g);
 [p, e, t] = initmesh(g, 'hmax', inf);
 
 for n = 1:iterations
-    
+    n
     %The code that was replaced . . .
 %     mystr             = ['PETForYoni/PETForYoni' num2str(n) '.mat'];
 %     load(mystr);

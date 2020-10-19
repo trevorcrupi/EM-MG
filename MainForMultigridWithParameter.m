@@ -1,6 +1,6 @@
 clear all
 
-iterations              = 6; %Enough PETs and new_Eles to do 8.
+iterations              = 4; %Enough PETs and new_Eles to do 8.
 meshLevel               = zeros(iterations,1);
 storingA                = cell(1,8); % Put in globalA.    %With Multigrid (Test MG)
 storingEdge             = cell(1,8); % Put in edge.       %With Multigrid (Test MG)
@@ -10,7 +10,7 @@ errorConvergenceRatesMG = zeros(iterations,1);            %With Multigrid (Test 
 numOfMGIterations       = zeros(iterations,1);            %With Multigrid (Test MG)
 sizeOfDimForMG          = zeros(iterations,1);            %With Multigrid (Test MG)
 k                       = 1; % Pick any non-zero integer, positive or negative. 1, -1, 2, -1; 10-(-10) For now.
-parameter               = 1;
+parameter               = 1; %29.32500 -- (normal) 29.32505        %.0001 (normal) - .001
 
 
 %The new code . . .
