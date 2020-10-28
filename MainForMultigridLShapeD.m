@@ -21,7 +21,7 @@ geometryFromEdges(model, g);
 [p, e, t] = initmesh(g, 'hmax', inf);
 
 for n = 1:iterations
-    
+    n
     %The code that was replaced . . .
 %     mystr             = ['PETForYoni/PETForYoni' num2str(n) '.mat'];
 %     load(mystr);
