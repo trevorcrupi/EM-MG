@@ -1,4 +1,4 @@
-function [solution,MGErrorConvergenceRate,numOfMGIterations] = MGMainUpdatedParameter(inputUVector,globalB, meshNum, storingA, storingEdge, storeNodeNums,storeHeights)
+function [solution,MGErrorConvergenceRate,numOfMGIterations] = MGMainUpdatedParameter(inputUVector,globalB, meshNum, storingA, storingEdge, storeNodeNums,storeHeights, numOfTriangles, p, t, edge, k)
 % For "Test MG": add "MGErrorConvergenceRate,numOfMGIterations" as
 %                more function outputs.
 
@@ -6,7 +6,7 @@ function [solution,MGErrorConvergenceRate,numOfMGIterations] = MGMainUpdatedPara
     % Test MG
     normS_iVector       = zeros(1,1);
     errors3             = zeros(1,1);
-    normS_0             = getHrCurlNormForParameter(inputUVector,storingA{meshNum});
+    normS_0             = getHrCurlNormForParameter(inputUVector, meshNum, numOfTriangles, p, t, edge, k);
     checkForToleranceMG = 1;
     numOfMGIterations   = 0;
     
@@ -20,12 +20,12 @@ function [solution,MGErrorConvergenceRate,numOfMGIterations] = MGMainUpdatedPara
         
         % Test MG
         if(numOfMGIterations == 1)
-           newval1                          = getHrCurlNormForParameter(solution_i,storingA{meshNum});
+           newval1                          = getHrCurlNormForParameter(solution_i, meshNum, numOfTriangles, p, t, edge, k);
            normS_iVector(numOfMGIterations) = newval1;
            errors3(numOfMGIterations)       = normS_iVector(numOfMGIterations) / normS_0;
         end
         if(numOfMGIterations > 1)
-            newval2       = getHrCurlNormForParameter(solution_i,storingA{meshNum});
+            newval2       = getHrCurlNormForParameter(solution_i, meshNum, numOfTriangles, p, t, edge, k);
             normS_iVector = [normS_iVector;newval2];
             newval3       = normS_iVector(numOfMGIterations) / normS_iVector(numOfMGIterations-1);
             errors3       = [errors3;newval3];
@@ -34,8 +34,6 @@ function [solution,MGErrorConvergenceRate,numOfMGIterations] = MGMainUpdatedPara
     end
     solution = solution_i;
     
-
-
     % Test MG
     MGErrorConvergenceRate     = 0;
     for l = 1:numOfMGIterations

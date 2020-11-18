@@ -34,17 +34,12 @@ function [c,globalA,height,numOfNodes,MGErrorConvergenceRate,numOfMGIterations] 
 
 
      for i = 1:numOfTriangles
-
         columnVector     = t(1:3, i); % Vector with points of the triangle
         rowVector        = new_ele(i, 1:3); % Vector with edges of the triangle
         localPhiCoeffs   = getLocalPhiCoeffs(p,columnVector);
         localPsiCoeffs   = getLocalPsiCoeffs(p,rowVector,edge);
         updatedRowVector = rowVector + numOfNodes; % Now numbered for n-nodes + N-edges.
         cAndRVector      = [columnVector; updatedRowVector'];
-
-
-
-
 
         % Triquad - Gaussian quadriture is a way to approximate integral.
         [X,Y,Wx,Wy]    = triquad(8, [p(1,columnVector(1)) p(2,columnVector(1)); p(1,columnVector(2)) p(2,columnVector(2)); p(1,columnVector(3)) p(2,columnVector(3))]);
