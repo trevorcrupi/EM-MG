@@ -1,6 +1,0 @@
-function norm = getHrCurlNormForParameter(c,iterationNum,numOfTriangles,p,t,edge,k)
-
-    norm_u    = getL2Norm(c,iterationNum,numOfTriangles,p,t,edge,k);
-    norm_curl = getL
-
-end

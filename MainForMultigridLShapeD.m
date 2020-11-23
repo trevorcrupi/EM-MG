@@ -1,6 +1,6 @@
 clear all
 
-iterations              = 9; %Enough PETs and new_Eles to do 8.
+iterations              = 8; %Enough PETs and new_Eles to do 8.
 meshLevel               = zeros(iterations,1);
 storingA                = cell(1,8); % Put in globalA.    %With Multigrid (Test MG)
 storingEdge             = cell(1,8); % Put in edge.       %With Multigrid (Test MG)
@@ -66,4 +66,4 @@ save('MG_Results','MeshLevel','SizeOfDimForMG','NumOfMGIterations','ErrorConverg
 
 table(MeshLevel,SizeOfDimForMG,NumOfMGIterations,ErrorConvergenceRateForMG)
 
-save('9MeshResults_LShapeD', 'MeshLevel', 'SizeOfDimForMG', 'NumOfMGIterations', 'ErrorConvergenceRateForMG');
+%save('8MeshResults_LShapeD', 'MeshLevel', 'SizeOfDimForMG', 'NumOfMGIterations', 'ErrorConvergenceRateForMG');
