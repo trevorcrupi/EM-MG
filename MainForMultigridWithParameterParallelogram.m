@@ -1,6 +1,6 @@
 clear all
 
-iterations              = 5; %Enough PETs and new_Eles to do 8.
+iterations              = 9; %Enough PETs and new_Eles to do 8.
 meshLevel               = zeros(iterations,1);
 storingA                = cell(1,8); % Put in globalA.    %With Multigrid (Test MG)
 storingEdge             = cell(1,8); % Put in edge.       %With Multigrid (Test MG)
@@ -20,7 +20,7 @@ geometryFromEdges(model, g);
 [p, e, t] = initmesh(g, 'hmax', inf);
 
 for n = 1:iterations
-    
+    n
     if n > 1
         [p, e, t] = refinemesh(g, p, e, t, 'regular');
     end
@@ -58,3 +58,5 @@ end
 %save('MG_Results','MeshLevel','SizeOfDimForMG','NumOfMGIterations','ErrorConvergenceRateForMG');
 
 table(MeshLevel,SizeOfDimForMG,NumOfMGIterations,ErrorConvergenceRateForMG)
+
+save('9MeshResults_Parallelogram_Parameter1', 'MeshLevel', 'SizeOfDimForMG', 'NumOfMGIterations', 'ErrorConvergenceRateForMG');
