@@ -10,7 +10,7 @@ errorConvergenceRatesMG = zeros(iterations,1);            %With Multigrid (Test 
 numOfMGIterations       = zeros(iterations,1);            %With Multigrid (Test MG)
 sizeOfDimForMG          = zeros(iterations,1);            %With Multigrid (Test MG)
 k                       = 1; % Pick any non-zero integer, positive or negative. 1, -1, 2, -1; 10-(-10) For now.
-parameter               = 1; %29.32500 -- (normal) 29.32505        %.0001 (normal) - .001
+parameter               = 10000; %29.32500 -- (normal) 29.32505        %.0001 (normal) - .001
 
 
 [gd sf ns] = meshgeometryParallelogram(1);
@@ -59,4 +59,4 @@ end
 
 table(MeshLevel,SizeOfDimForMG,NumOfMGIterations,ErrorConvergenceRateForMG)
 
-save('9MeshResults_Parallelogram_Parameter1', 'MeshLevel', 'SizeOfDimForMG', 'NumOfMGIterations', 'ErrorConvergenceRateForMG');
+%save('9MeshResults_Parallelogram_Parameter10000', 'MeshLevel', 'SizeOfDimForMG', 'NumOfMGIterations', 'ErrorConvergenceRateForMG');

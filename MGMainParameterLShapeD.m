@@ -6,7 +6,7 @@ function [solution,MGErrorConvergenceRate,numOfMGIterations] = MGMainParameterLS
     % Test MG
     normS_iVector       = zeros(1,1);
     errors3             = zeros(1,1);
-    normS_0             = getHrCurlNormForParameter(inputUVector, meshNum, numOfTriangles, p, t, edge, k);
+    normS_0             = getHrCurlNormForParameterLShapeD(inputUVector, meshNum, numOfTriangles, p, t, edge, k);
     checkForToleranceMG = 1;
     numOfMGIterations   = 0;
     

@@ -6,7 +6,7 @@ function [solution,MGErrorConvergenceRate,numOfMGIterations] = MGMainParameterPa
     % Test MG
     normS_iVector       = zeros(1,1);
     errors3             = zeros(1,1);
-    normS_0             = getHrCurlNormForParameter(inputUVector, meshNum, numOfTriangles, p, t, edge, k);
+    normS_0             = getHrCurlNormForParameterParallelogram(inputUVector, meshNum, numOfTriangles, p, t, edge, k);
     checkForToleranceMG = 1;
     numOfMGIterations   = 0;
     
@@ -15,12 +15,12 @@ function [solution,MGErrorConvergenceRate,numOfMGIterations] = MGMainParameterPa
     while checkForToleranceMG >= (10^(-15))             % This condition for "Test MG".
         numOfMGIterations    = numOfMGIterations +1;
         
-        solution_i = MGUpdated( solution_i, globalB, meshNum, storingA, storingEdge, storeNodeNums,storeHeights);
+        solution_i = MGParallelogram( solution_i, globalB, meshNum, storingA, storingEdge, storeNodeNums,storeHeights);
     
         
         % Test MG
         if(numOfMGIterations == 1)
-           newval1                          = getHrCurlNormForParameter(solution_i, meshNum, numOfTriangles, p, t, edge, k);
+           newval1                          = getHrCurlNormForParameterParallelogram(solution_i, meshNum, numOfTriangles, p, t, edge, k);
            normS_iVector(numOfMGIterations) = newval1;
            errors3(numOfMGIterations)       = normS_iVector(numOfMGIterations) / normS_0;
         end
